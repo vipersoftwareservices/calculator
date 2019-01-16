@@ -1,0 +1,126 @@
+body {
+	background-color: powderblue;
+}
+
+h1 {
+	color: blue;
+}
+
+p {
+	color: red;
+}
+
+.calculator {
+	vertical-align: middle;
+	pref-width: 650px;
+	background-color: #59646D;
+	border: 10px ridge #2F3232;
+	border-radius: 20px;
+	margin: 0px;
+	padding: 5px 30px 30px 30px;
+}
+
+.title {
+	width: 100%;
+	text-align: center;
+	padding: 5px;
+	color: white;
+}
+
+.plot_pane {
+	height: 200px;
+	padding: 5px;
+	border: 3px inset #EDEBE6;
+	background-color: #B4A77A;
+	color: white;
+}
+
+.scientific-pane {
+	padding: 0px 5px 0px 5px;
+	float: left;
+	width: 49%;
+	height: 200px;
+	overflow: hidden;
+	border: 0px solid BLACK;
+}
+
+.numeric-pane {
+	padding: 0px 5px 0px 5px;
+	float: right;
+	width: 49%;
+	height: 200px;
+	overflow: hidden;
+	border: 0px solid BLACK;
+}
+
+.menu-pane {
+	
+}
+
+.numeric-button {
+	width: 100%;
+	height: 100%;
+}
+
+.calc-button {
+	width: 100%;
+	height: 100%;
+}
+
+.expression {
+	width: 95%;
+	color: black;
+}
+
+.expression-pane {
+	width: 100%;
+	color: white;
+	    border-top: 1px solid black;
+	    border-bottom: 1px solid black;
+}
+
+.calculator-inner-pane {
+	color: black;
+	padding: 5px 5px 5px 5px;
+	border: 3px inset #EDEBE6;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.button-pane {
+	text-align: center;
+	color: black;
+	margin: 5px 5px 5px 5px;
+}
+
+.where-toggle {
+	width: 35px;
+	height: 35px;
+	position: relative;
+	display: inline-block;
+	background-color: #cccccc;
+	position: relative;
+}
+
+.where-toggle {
+	background-image: url("images/plus.png");
+}
+
+.where-toggle:checked {
+	background-image: url("images/minus.png");
+}
+
+.where-toggle input {
+	display: none;
+}
+
+.log-pane {
+	width: 100%;
+	overflow-y: scroll;
+}
+
+.result_pane {
+	background-color: #B4A77A;
+	color: white;
+	border: 3px inset #EDEBE6;
+}

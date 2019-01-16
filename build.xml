@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="calculator" default="all" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant" xmlns:jacoco="antlib:org.jacoco.ant">
+	<property file="${basedir}/build.properties" />
+	<property name="name" value="calculator" />
+	<property name="build.dir" value="${basedir}/build" />
+	<property name="version" value="1.0" />
+    <property name="tomcat.dir" value="apache-tomee-plus-7.0.2" />
+    <property name="tomcat.root" value="/opt" />
+    <property name="tomcat.home" value="/opt/apache-tomee-plus-7.0.2" />
+    <property name="test.name" value="Test*" />
+    <property name="database.name" value="test" />
+	<!-- ===================================================================== -->
+	<!-- Defines the classpath used for compilation and test. -->
+	<!-- ===================================================================== -->
+	<path id="classpath.main">
+		<pathelement location="${build.dir}/classes" />
+		<pathelement location="${build.dir}/${name}.jar" />
+        <fileset dir="${basedir}/lib" includes="**/*.jar" />
+	</path>
+	<path id="classpath.tools">
+		<path refid="classpath.main" />
+	</path>
+	<!-- =================================================================== -->
+	<!-- Cleans up generated stuff -->
+	<!-- =================================================================== -->
+	<target name="clean">
+		<delete quiet="true" dir="${build.dir}" />
+	</target>
+	<!-- =================================================================== -->
+	<!-- Prepares the build directory -->
+	<!-- ${build.dir}/${name} is the root directory for the war file -->
+	<!-- =================================================================== -->
+	<target name="prepare" depends="clean">
+		<tstamp />
+		<mkdir dir="${build.dir}/classes" />
+		<mkdir dir="${build.dir}/reports/raw" /> 
+	</target>
+   
+	<!-- =================================================================== -->
+	<!-- Create a war file for distribution -->
+	<!-- =================================================================== -->
+	<target name="war" depends="prepare">
+		<war destfile="${build.dir}/${name}.war" webxml="${basedir}/web/WEB-INF/web.xml">
+			<fileset dir="${basedir}/web" excludes="WEB-INF/**" />
+		</war>
+	</target>
+	<!-- =================================================================== -->
+	<!-- deploy to server -->
+	<!-- =================================================================== -->
+	<target name="deploy" depends="war">
+		<copy tofile="${tomcat.home}/webapps/${name}.war" flatten="true">
+			<fileset file="${build.dir}/${name}.war" />
+		</copy>
+	</target>
+    <!-- =================================================================== -->
+    <!-- deploy to server -->
+    <!-- =================================================================== -->
+	
+    <target name="start.tomcat">
+        <exec executable="bash" dir="${tomcat.home}/bin" osfamily="windows">
+            <arg line="-c ./startup.bat" />
+        </exec>
+        <exec executable="bash" dir="${tomcat.home}/bin" osfamily="unix">
+            <arg line="-c ./startup.sh" />
+        </exec>
+    </target>
+
+    <target name="stop.tomcat">
+        <exec executable="bash" dir="${tomcat.home}/bin" osfamily="windows">
+            <arg line="-c ./shutdown.bat" />
+        </exec>
+        <exec executable="bash" dir="${tomcat.home}/bin" osfamily="unix">
+            <arg line="-c ./shutdown.sh" />
+        </exec>
+    </target>
+	<!-- =================================================================== -->
+	<target name="cruise-control" depends="clean,deploy" />
+	<target name="all" depends="clean,deploy" />
+</project>

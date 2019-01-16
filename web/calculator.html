@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Calculator</title>
+<link rel="stylesheet" href="calculator.css">
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type='text/javascript' src="calculator.js"></script>
+<script type="text/javascript">
+	google.charts.load('current', {
+		'packages' : [ 'corechart' ]
+	});
+</script>
+</head>
+<body>
+	<div class="calculator">
+		<div class="title">Plotting Calculator</div>
+		<div id='plot_pane' class='plot_pane'></div>
+		<div class="calculator-inner-pane">
+			<table class="scientific-pane">
+				<tr>
+					<td><button class="calc-button"
+							onclick="functionButton('Math.sqrt')">sqrt</button></td>
+					<td><button class="calc-button"
+							onclick="operatorButton('* 10')">*10</button></td>
+					<td><button class="calc-button"
+							onclick="functionButton('Math.exp')">exp</button></td>
+					<td><button class="calc-button"
+							onclick="functionButton('Math.asin')">asin</button></td>
+					<td><button class="calc-button"
+							onclick="functionButton('Math.acos')">acos</button></td>
+					<td><button class="calc-button"
+							onclick="functionButton('Math.atan')">atan</button></td>
+				</tr>
+				<tr>
+					<td><button class="calc-button"
+							onclick="operatorButton('* 2')">*2</button></td>
+					<td><button class="calc-button"
+							onclick="functionButton('Math.log10')">log10</button></td>
+					<td><button class="calc-button"
+							onclick="functionButton('Math.log')">log</button></td>
+					<td><button class="calc-button"
+							onclick="functionButton('Math.sin')">sin</button></td>
+					<td><button class="calc-button"
+							onclick="functionButton('Math.cos')">cos</button></td>
+					<td><button class="calc-button"
+							onclick="functionButton('Math.tan')">tan</button></td>
+				</tr>
+				<tr>
+					<td><button class="calc-button"
+							onclick="operatorButton(' ** ')">x ** y</button></td>
+					<td><button class="calc-button"
+							onclick="operatorButton('Math.PI')">PI</button></td>
+					<td><button class="calc-button"
+							onclick="operatorButton('Math.E')">E</button></td>
+					<td><button class="calc-button" onclick="functionButton()"></button></td>
+					<td><button class="calc-button" onclick="functionButton()"></button></td>
+					<td><button class="calc-button" onclick="functionButton()"></button></td>
+				</tr>
+				<tr>
+					<td><button class="calc-button" onclick="functionButton()">X!</button></td>
+					<td><button class="calc-button" onclick="functionButton()"></button></td>
+					<td><button class="calc-button" onclick="functionButton()"></button></td>
+					<td><button class="calc-button" onclick="functionButton()"></button></td>
+					<td><button class="calc-button" onclick="functionButton()"></button></td>
+					<td><button class="calc-button" onclick="functionButton()"></button></td>
+				</tr>
+				<tr>
+					<td><button class="calc-button" onclick="functionButton()"></button></td>
+					<td><button class="calc-button" onclick="functionButton()"></button></td>
+					<td><button class="calc-button" onclick="functionButton()"></button></td>
+					<td><button class="calc-button" onclick="functionButton()"></button></td>
+					<td><button class="calc-button" onclick="functionButton()"></button></td>
+					<td><button class="calc-button" onclick="functionButton()"></button></td>
+				</tr>
+			</table>
+			<table class="numeric-pane">
+				<tr>
+					<td><button class="numeric-button"
+							onclick="operatorButton('m+')">M+</button></td>
+					<td><button class="numeric-button"
+							onclick="operatorButton('m-')">M-</button></td>
+					<td><button class="numeric-button"
+							onclick="operatorButton('mr')">MR</button></td>
+					<td><button class="numeric-button"
+							onclick="operatorButton('ms')">MS</button></td>
+					<td><button class="numeric-button"
+							onclick="operatorButton('mc')">MC</button></td>
+				</tr>
+				<tr>
+					<td><button class="numeric-button" onclick="numericButton(7)">7</button></td>
+					<td><button class="numeric-button" onclick="numericButton(8)">8</button></td>
+					<td><button class="numeric-button" onclick="numericButton(9)">9</button></td>
+					<td><button class="numeric-button"
+							onclick="operatorButton('/')">/</button></td>
+					<td><button class="numeric-button"
+							onclick="operatorButton('%')">%</button></td>
+				</tr>
+				<tr>
+					<td><button class="numeric-button" onclick="numericButton(4)">4</button></td>
+					<td><button class="numeric-button" onclick="numericButton(5)">5</button></td>
+					<td><button class="numeric-button" onclick="numericButton(6)">6</button></td>
+					<td><button class="numeric-button"
+							onclick="operatorButton(' * ')">x</button></td>
+					<td><button class="numeric-button"
+							onclick="operatorButton('exp')">exp</button></td>
+				</tr>
+				<tr>
+					<td><button class="numeric-button" onclick="numericButton(1)">1</button></td>
+					<td><button class="numeric-button" onclick="numericButton(2)">2</button></td>
+					<td><button class="numeric-button" onclick="numericButton(3)">3</button></td>
+					<td><button class="numeric-button"
+							onclick="operatorButton('-')">-</button></td>
+					<td><button class="numeric-button"
+							onclick="operatorButton('inv')">1/x</button></td>
+				</tr>
+				<tr>
+					<td><button class="numeric-button" onclick="numericButton(0)">0</button></td>
+					<td><button class="numeric-button"
+							onclick="numericButton('.')">.</button></td>
+					<td><button class="numeric-button"
+							onclick="operatorButton('neg')">+/-</button></td>
+					<td><button class="numeric-button"
+							onclick="operatorButton('+')">+</button></td>
+					<td><button class="numeric-button" onclick=""></button></td>
+				</tr>
+			</table>
+			<table class="expression-pane">
+				<tr>
+					<td>&nbsp;</td>
+					<td colspan="2">Expression:<br /> <input class="expression"
+						type="text" id="expression"></input></td>
+					<td>Result:<br /> <input class="result_pane" type="text"
+						id="result_pane"></input></td>
+				</tr>
+				<tr>
+					<td>Where: x</td>
+					<td>starts at<br /> <input type="text" id="where.x.starts"
+						value="1"></input></td>
+					<td>ends with<br /> <input type="text" id="where.x.ends"
+						value="100"></input></td>
+					<td>increments by<br /> <input type="text" id="where.x.by"
+						value="1"></input></td>
+				</tr>
+			</table>
+			<div class="button-pane">
+				<button class="expression-button" onclick='clearEntryButton()'>CE</button>
+				<button class="expression-button" onclick="clearEverythingButton()">C</button>
+				<button class="expression-button" onclick='plotButton()'>Plot</button>
+				<button class="expression-button" onclick="calcButton()">Calc</button>
+			</div>
+		</div>
+		<textarea id="log-pane" rows="5" class="log-pane"></textarea>
+	</div>
+</body>
+</html>
