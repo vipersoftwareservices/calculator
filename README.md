@@ -1,12 +1,12 @@
 ![alt CALCULATOR banner](doc/images/viper-wide-banner.jpg)
 
-# CALCULATOR (In Progress)
-
-[CALCULATOR](http://www.tnevin.com)
-
-CALCULATOR is a simple javascript page which performs calculation and graphing functions for entered expressions. 
-
-[CALCULATOR](http://www.tnevin.com/calculator/) view the calculator
+# CALCULATOR   
+CALCULATOR is a simple html/javascript page which performs calculation and graphing functions for entered expressions. 
+ 
+* [CALCULATOR](http://www.tnevin.com/calculator/) Run the calculator
+* [Getting Started](#getting-started) Download, install, and build the jar file. 
+* [Screenshot](#screenshot) View ascreen shot the the calculator UI. 
+* [Authors Home Page](http://www.tnevin.com) In progress
 
 ## Features
 
@@ -15,28 +15,11 @@ CALCULATOR is an online web tool and has the following features:
 * Perform functions as in a calculator
 * Render graphs of the entered equations 
 
-
-## Additional Documentation
-
-In progress: 
-* [Authors Home Page](http://www.tnevin.com)
-
+ 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine.
-
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-* java 1.6 or better.
-* ant 1.9 or better (optional).
-* For Windows, install CygWin, latest.
-```
-
-Note: ant commands have been run and tested using cygwin bash shell, dos shell, and other linux shells will probably work.
-
+ 
 ### Installing
 
 1. Download the CALCULATOR zip file, and unzip it.
@@ -51,53 +34,13 @@ https://github.com/vipersoftwareservices/calculator
 ant clean all
 ```
 
+3. Find the binary war file in the build directory and use
 
-## Running the tests
-
-Run the tests, by running ant command.
 
 ```
-ant test
+<install-directory>/build/calculator.war
 ```
-
-View the JUnit test results, by bringing the following file up in browser.
-For windows, double click the file in the disk explorer, the location of the file is:
-
-```
-<install-directory>/build/reports/index.html
-```
-
-View the code coverage file in the browser..
-For windows, double click the file in the disk explorer, the location of the file is:
-
-```
-<install-directory>/build/jacoco/index.html
-```
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Check on coding style by running:
-
-```
-ant checkstyle
-```
-
-## Deployment
-
-In progress
-
-## Built With
-
-In progress 
-
+  
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/vipersoftwareservices/calculator) for details on our code of conduct, and the process for submitting pull requests to us.
@@ -116,7 +59,10 @@ See also the list of [contributors](https://github.com/vipersoftwareservices/cal
 
 This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details
 
-## Acknowledgments
+## Screenshot
 
-In progress
-
+The following screenshot shows a plot of the algorithm "sin(x) * log(x)" starting at  x = 1 ending at 100 in increments of 0.1.
+The algorithm can either be typed in or the buttons pressed, press plot when you want to see the plot.
+ 
+![alt CALCULATOR screenshot](doc/images/calculator.png)
+ 

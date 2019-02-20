@@ -1,5 +1,9 @@
-body {
+body, html {
 	background-color: powderblue;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0
 }
 
 h1 {
@@ -12,7 +16,8 @@ p {
 
 .calculator {
 	vertical-align: middle;
-	pref-width: 650px;
+	width: 100%;
+	height: 100%;
 	background-color: #59646D;
 	border: 10px ridge #2F3232;
 	border-radius: 20px;

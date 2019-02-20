@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="calculator" default="all" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant" xmlns:jacoco="antlib:org.jacoco.ant">
-	<property file="${basedir}/build.properties" />
+<project name="calculator" default="all" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant" xmlns:jacoco="antlib:org.jacoco.ant"> 
 	<property name="name" value="calculator" />
 	<property name="build.dir" value="${basedir}/build" />
 	<property name="version" value="1.0" />
-    <property name="tomcat.dir" value="apache-tomee-plus-7.0.2" />
-    <property name="tomcat.root" value="/opt" />
-    <property name="tomcat.home" value="/opt/apache-tomee-plus-7.0.2" />
+	<property name="tomcat.dir" value="tomcat" />
+	<property name="tomcat.root" value="/opt" />
+	<property name="tomcat.home" value="/opt/${tomcat.dir}" />
     <property name="test.name" value="Test*" />
     <property name="database.name" value="test" />
 	<!-- ===================================================================== -->
@@ -75,5 +74,6 @@
     </target>
 	<!-- =================================================================== -->
 	<target name="cruise-control" depends="clean,deploy" />
-	<target name="all" depends="clean,deploy" />
+	<target name="release" depends="clean,deploy" />
+	<target name="all" depends="clean,war" />
 </project>
