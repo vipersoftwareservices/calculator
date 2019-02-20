@@ -64,5 +64,5 @@ This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.t
 The following screenshot shows a plot of the algorithm "sin(x) * log(x)" starting at  x = 1 ending at 100 in increments of 0.1.
 The algorithm can either be typed in or the buttons pressed, press plot when you want to see the plot.
  
-![alt CALCULATOR screenshot](doc/images/calculator.png)
+![alt CALCULATOR screenshot](doc/images/calculator.jpg)
  
